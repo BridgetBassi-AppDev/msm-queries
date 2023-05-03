@@ -1,0 +1,53 @@
+<dl>
+  <dt>
+    Title
+  </dt>
+  <dd>
+    <%= @director_entry.title %>
+  </dd>
+
+  <dt>
+    Year
+  </dt>
+  <dd>
+    <%= @director_entry.year %>
+  </dd>
+
+  <dt>
+    Duration
+  </dt>
+  <dd>
+    <%= @director_entry.duration %>
+  </dd>
+  <dt>
+    Description
+  </dt>
+  <dd>
+    <%= @director_entry.description %>
+  </dd>
+  <dt>
+    Image
+  </dt>
+  <dd>
+    <% href= @director_entry.image %>
+  </dd>
+  <dt>
+    Director
+  </dt>
+  <dd>
+    <%= Director.where({:id => @director_entry.director_id}).at(0).name %>
+  </dd>
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@director_entry.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@director_entry.updated_at) %> ago
+  </dd>
+</dl>

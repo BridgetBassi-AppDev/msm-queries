@@ -1,0 +1,70 @@
+<dl>
+  <dt>
+    Name
+  </dt>
+  <dd>
+    <%= @director_entry.name %>
+  </dd>
+
+  <dt>
+    Dob
+  </dt>
+  <dd>
+    <%= @director_entry.dob %>
+  </dd>
+
+  <dt>
+    Bio
+  </dt>
+  <dd>
+    <%= @director_entry.bio %>
+  </dd>
+
+  <dt>
+    Image
+  </dt>
+  <dd>
+    <% href= @director_entry.image %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@director_entry.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@director_entry.updated_at) %> ago
+  </dd>
+</dl>
+
+<h2>Filmography</h2>
+<table border="1">
+<% @filmography.each do |a_film| %>
+  <tr>
+    <td>
+    <%= a_film.id%>
+    </td>
+    <td>
+      <img src="http://robohash.org/<%= a_film.id %>">
+    </td>
+    <td>
+    <%= a_film.title%>
+    </td>
+    <td>
+    <%= a_film.year%>
+    </td>
+    <td>
+    <%= a_film.director_id%>
+    </td>
+    <td>
+    <a href="/movies/<%= a_film.id %>">
+    Show details
+    </td>
+  </tr>
+<% end%>
+</table>
